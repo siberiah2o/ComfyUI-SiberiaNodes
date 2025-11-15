@@ -1,0 +1,67 @@
+[project]
+name = "comfyui-siberianodes"
+description = "Custom nodes for ComfyUI with Ollama integration for LLM chat, vision analysis, and utilities"
+version = "1.0.0"
+license = {text = "MIT"}
+
+authors = [
+    {name = "siberiah0h", email = "siberiah0h@gmail.com"},
+]
+maintainers = [
+    {name = "siberiah0h", email = "siberiah0h@gmail.com"},
+]
+
+keywords = [
+    "comfyui",
+    "custom-nodes",
+    "ollama",
+    "llm",
+    "ai",
+    "image-analysis",
+    "chat",
+    "siberia"
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Graphics",
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.13.0",
+    "numpy>=1.21.0",
+    "Pillow>=8.0.0",
+    "typing-extensions>=4.0.0",
+    "requests>=2.25.0",
+    "ollama>=0.1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/siberiah0h/comfyui-siberianodes"
+Documentation = "https://github.com/siberiah0h/comfyui-siberianodes/blob/main/README.md"
+"Bug Reports" = "https://github.com/siberiah0h/comfyui-siberianodes/issues"
+"Source Code" = "https://github.com/siberiah0h/comfyui-siberianodes"
+"Technical Blog" = "https://www.dataeast.cn"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+
+[tool.setuptools.package-data]
+"*" = ["web/**/*", "*.yaml", "*.yml", "*.json"]

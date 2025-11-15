@@ -1,8 +1,15 @@
 # ComfyUI-SiberiaNodes User Guide 用户使用指南
 
+![PyPI version](https://img.shields.io/pypi/v/comfyui-siberianodes)
+![Python versions](https://img.shields.io/pypi/pyversions/comfyui-siberianodes)
+![License](https://img.shields.io/pypi/l/comfyui-siberianodes)
+![Downloads](https://img.shields.io/pypi/dm/comfyui-siberianodes)
+
 **Author:** siberiah0h
 **Email:** siberiah0h@gmail.com
 **Technical Blog:** www.dataeast.cn
+**Version:** 1.0.0
+**License:** MIT
 
 ## 概述 / Overview
 

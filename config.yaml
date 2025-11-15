@@ -2,4 +2,4 @@ ollama_servers:
 - name: Local Server / 本地服务器
   url: http://127.0.0.1:11434
 - name: Remote Server / 远程服务器
-  url: http://115.190.140.100:31434
+  url: http://192.168.1.100:11434
