@@ -1,33 +1,26 @@
 [project]
-name = "comfyui-siberianodes"
+name = "siberianodes"
 description = "Custom nodes for ComfyUI with Ollama integration for LLM chat, vision analysis, and utilities"
 version = "1.0.0"
-license = {text = "MIT"}
+license = {file = "LICENSE"}
 
 authors = [
     {name = "siberiah0h", email = "siberiah0h@gmail.com"},
 ]
-maintainers = [
-    {name = "siberiah0h", email = "siberiah0h@gmail.com"},
-]
-
-keywords = [
-    "comfyui",
-    "custom-nodes",
-    "ollama",
-    "llm",
-    "ai",
-    "image-analysis",
-    "chat",
-    "siberia"
-]
 
 classifiers = [
+    # For OS-independent nodes (works on all operating systems)
+    "Operating System :: OS Independent",
+
+    # GPU Accelerator support
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Environment :: GPU :: Apple Metal",
+
+    # Development status
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -38,7 +31,6 @@ classifiers = [
     "Topic :: Multimedia :: Graphics",
 ]
 
-requires-python = ">=3.8"
 dependencies = [
     "torch>=1.13.0",
     "numpy>=1.21.0",
@@ -46,22 +38,20 @@ dependencies = [
     "typing-extensions>=4.0.0",
     "requests>=2.25.0",
     "ollama>=0.1.0",
+    "aiohttp>=3.8.0",
+    "pyyaml>=6.0",
 ]
 
 [project.urls]
 Repository = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes"
-Documentation = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/blob/main/README.md"
-"Bug Reports" = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/issues"
-"Source Code" = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes"
-"Technical Blog" = "https://www.dataeast.cn"
+#  Used by Comfy Registry https://registry.comfy.org
+Documentation = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/wiki"
+"Bug Tracker" = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/issues"
 
-[build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+[tool.comfy]
+PublisherId = "siberiah2o"
+DisplayName = "ComfyUI-SiberiaNodes"
+Icon = ""
+includes = []
+"requires-comfyui" = ">=1.0.0"  # ComfyUI version compatibility
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["*"]
-
-[tool.setuptools.package-data]
-"*" = ["web/**/*", "*.yaml", "*.yml", "*.json"]
