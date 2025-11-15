@@ -30,7 +30,7 @@ ComfyUI-SiberiaNodes is a custom node package for ComfyUI that provides integrat
 ### 1. 克隆节点包 / Clone Node Package
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/your-repo/ComfyUI-SiberiaNodes.git
+git clone https://github.com/siberiah2o/comfyui-siberianodes.git
 ```
 
 ### 2. 安装依赖 / Install Dependencies

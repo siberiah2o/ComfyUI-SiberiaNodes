@@ -49,10 +49,10 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/siberiah0h/comfyui-siberianodes"
-Documentation = "https://github.com/siberiah0h/comfyui-siberianodes/blob/main/README.md"
-"Bug Reports" = "https://github.com/siberiah0h/comfyui-siberianodes/issues"
-"Source Code" = "https://github.com/siberiah0h/comfyui-siberianodes"
+Repository = "https://github.com/siberiah2o/comfyui-siberianodes"
+Documentation = "https://github.com/siberiah2o/comfyui-siberianodes/blob/main/README.md"
+"Bug Reports" = "https://github.com/siberiah2o/comfyui-siberianodes/issues"
+"Source Code" = "https://github.com/siberiah2o/comfyui-siberianodes"
 "Technical Blog" = "https://www.dataeast.cn"
 
 [build-system]
