@@ -1,3 +1,12 @@
+"""
+ComfyUI-SiberiaNodes - API endpoints for Ollama integration
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
+"""
+
 import sys
 import pathlib
 

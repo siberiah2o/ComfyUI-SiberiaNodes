@@ -1,11 +1,15 @@
 /**
- * Siberia Display Node - Frontend Widget Handler
- * Siberia 显示节点 - 前端组件处理器
+ * ComfyUI-SiberiaNodes - Frontend widget handler for display nodes
  *
- * 功能 / Features:
- * - 动态创建文本显示组件 / Dynamically create text display widgets
- * - 自动调整节点大小 / Auto-resize node
- * - 支持工作流保存和恢复 / Support workflow save and restore
+ * Features:
+ * - Dynamically create text display widgets
+ * - Auto-resize node
+ * - Support workflow save and restore
+ *
+ * Author: siberiah0h
+ * Email: siberiah0h@gmail.com
+ * Technical Blog: www.dataeast.cn
+ * Last Updated: 2025-11-15
  */
 
 import { app } from "/scripts/app.js";

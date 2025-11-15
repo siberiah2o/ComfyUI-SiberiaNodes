@@ -1,6 +1,10 @@
 """
-Siberia Ollama SDK Client - 完全基于Ollama SDK的客户端实现
-Siberia Ollama SDK Client - Complete Ollama SDK-based Implementation
+ComfyUI-SiberiaNodes - Complete Ollama SDK-based client implementation
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
 """
 
 import re

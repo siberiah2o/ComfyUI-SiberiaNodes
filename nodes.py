@@ -1,3 +1,12 @@
+"""
+ComfyUI-SiberiaNodes - Main node definitions for ComfyUI custom nodes
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
+"""
+
 import torch
 import numpy as np
 import os

@@ -1,4 +1,3 @@
-last_used_server: http://115.190.140.100:31434
 ollama_servers:
 - name: Local Server / 本地服务器
   url: http://127.0.0.1:11434

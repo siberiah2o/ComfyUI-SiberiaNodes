@@ -1,3 +1,12 @@
+"""
+ComfyUI-SiberiaNodes - Ollama vision node for ComfyUI
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
+"""
+
 from .ollama_sdk_client import SiberiaOllamaSDKClient
 
 

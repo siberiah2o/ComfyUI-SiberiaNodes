@@ -1,3 +1,12 @@
+"""
+ComfyUI-SiberiaNodes - Configuration manager for Ollama server settings
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
+"""
+
 import yaml
 import os
 from pathlib import Path
@@ -20,8 +29,7 @@ class manager:
                     "name": "Local Server / 本地服务器",
                     "url": "http://127.0.0.1:11434"
                 }
-            ],
-            "last_used_server": None
+            ]
         }
 
     def load_config(self) -> Dict:
@@ -36,8 +44,6 @@ class manager:
                     config = self.default_config.copy()
                 if "ollama_servers" not in config:
                     config["ollama_servers"] = self.default_config["ollama_servers"]
-                if "last_used_server" not in config:
-                    config["last_used_server"] = None
 
                 return config
             else:
@@ -52,11 +58,7 @@ class manager:
         config = self.load_config()
         return config.get("ollama_servers", [])
 
-    def get_last_used_server(self) -> Optional[str]:
-        """获取最后使用的服务器 / Get last used server"""
-        config = self.load_config()
-        return config.get("last_used_server")
-
+    
     def get_server_options(self) -> List[Dict]:
         """获取服务器选项列表，用于ComfyUI下拉菜单 / Get server options list for ComfyUI dropdown"""
         return self.get_servers()
@@ -74,18 +76,11 @@ class manager:
 
     def get_default_server(self) -> str:
         """获取默认服务器 / Get default server"""
-        last_used = self.get_last_used_server()
         servers = self.get_servers()
 
-        # 优先使用最后使用的服务器 / Prefer last used server
-        if last_used:
-            for server in servers:
-                if server['url'] == last_used:
-                    return server['url']
-
-        # 否则使用第一个服务器 / Otherwise use first server
+        # 使用第一个服务器 / Use first server
         if servers:
             return servers[0]['url']
 
-        # 最后返回默认URL / Finally return default URL
+        # 返回默认URL / Return default URL
         return "http://127.0.0.1:11434"

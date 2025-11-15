@@ -1,5 +1,10 @@
 """
-SiberiaNodes 工具模块 / SiberiaNodes Utils Module
+ComfyUI-SiberiaNodes - Utility module for SiberiaNodes
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
 """
 
 from .display_node import (

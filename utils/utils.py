@@ -1,5 +1,10 @@
 """
-SiberiaNodes 工具类 / SiberiaNodes Utils
+ComfyUI-SiberiaNodes - Utility classes and functions
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
 """
 
 

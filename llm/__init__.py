@@ -1,6 +1,10 @@
 """
-Siberia Ollama Module - 专门负责Ollama相关功能的模块
-Siberia Ollama Module - Module specifically for Ollama-related functionality
+ComfyUI-SiberiaNodes - Module specifically for Ollama-related functionality
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
 """
 
 from .ollama_sdk_client import SiberiaOllamaSDKClient

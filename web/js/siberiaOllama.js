@@ -1,5 +1,11 @@
-// Siberia Ollama Nodes - Dynamic model loading functionality
-// Siberia Ollama 节点 - 动态模型加载功能
+/**
+ * ComfyUI-SiberiaNodes - Dynamic model loading functionality for Ollama nodes
+ *
+ * Author: siberiah0h
+ * Email: siberiah0h@gmail.com
+ * Technical Blog: www.dataeast.cn
+ * Last Updated: 2025-11-15
+ */
 
 import { app } from "/scripts/app.js";
 

@@ -1,8 +1,12 @@
 """
-Siberia 通用展示节点 / Siberia Universal Display Node
+ComfyUI-SiberiaNodes - Universal display node for ComfyUI
 
-这个节点可以接收并显示任何类型的数据，包括字符串、数字、列表、字典等。
 This node can receive and display any type of data, including strings, numbers, lists, dicts, etc.
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
 """
 
 import json

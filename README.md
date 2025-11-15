@@ -1,171 +1,292 @@
-# ComfyUI-SiberiaNodes / ComfyUI西伯利亚节点
+# ComfyUI-SiberiaNodes User Guide 用户使用指南
 
-一个为 ComfyUI 开发的简单图片加载自定义插件。
-A simple image loading custom plugin developed for ComfyUI.
+**Author:** siberiah0h
+**Email:** siberiah0h@gmail.com
+**Technical Blog:** www.dataeast.cn
+
+## 概述 / Overview
+
+ComfyUI-SiberiaNodes 是一个专为 ComfyUI 开发的自定义节点包，提供了与 Ollama 大语言模型的集成功能，以及图像处理和数据显示工具。
+
+ComfyUI-SiberiaNodes is a custom node package for ComfyUI that provides integration with Ollama Large Language Models, along with image processing and data display utilities.
 
 ## 功能特性 / Features
 
-### Siberia 图片加载器 / Image Loader
-- 简单高效的图片加载功能 / Simple and efficient image loading functionality
-- 类似 ComfyUI 核心的文件浏览器 / File browser similar to ComfyUI core
-- 自动扫描 ComfyUI input 文件夹 / Auto-scan ComfyUI input folder
-- 下拉菜单选择图片文件 / Dropdown menu for image file selection
-- 自动转换为 RGB 格式 / Automatic RGB format conversion
-- 提供加载信息反馈 / Provide loading information feedback
+- 🔌 **Ollama 集成**: 连接本地或远程 Ollama 服务器
+- 💬 **聊天功能**: 基于文本的对话交互
+- 👁️ **视觉分析**: 图像理解和分析能力
+- 🖼️ **图像加载**: 简单易用的图像加载节点
+- 📊 **通用显示**: 支持任意数据的可视化展示
 
-### Siberia Ollama 连接器 / Ollama Connector
-- 连接到 Ollama 本地或远程服务器 / Connect to Ollama local or remote servers
-- 动态加载可用模型列表 / Dynamically load available model list
-- 下拉选择模型而非手动输入 / Dropdown model selection instead of manual input
-- 自动刷新模型列表 / Auto-refresh model list
-- 可配置超时时间 / Configurable timeout settings
-- 连接状态验证 / Connection status validation
+## 安装 / Installation
 
-### Siberia Ollama 生成器 / Ollama Generator
-- 文本生成功能 / Text generation functionality
-- 可配置系统提示词和用户提示词 / Configurable system and user prompts
-- 支持温度和生成长度参数 / Support temperature and generation length parameters
-- 错误处理和状态反馈 / Error handling and status feedback
-
-### Siberia Ollama 聊天 / Ollama Chat
-- 多轮对话支持 / Multi-turn conversation support
-- 聊天历史管理 / Chat history management
-- 可清除历史记录功能 / Clear history functionality
-- 上下文感知对话 / Context-aware conversations
-
-## 安装方法 / Installation
-
-1. 确保已安装 ComfyUI / Make sure ComfyUI is installed
-2. 将此文件夹复制到 `ComfyUI/custom_nodes/` 目录下 / Copy this folder to `ComfyUI/custom_nodes/` directory
-3. 安装依赖 / Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. 重启 ComfyUI / Restart ComfyUI
-
-## 使用方法 / Usage
-
-1. 启动 ComfyUI / Start ComfyUI
-2. 确保 Ollama 服务器正在运行 / Ensure Ollama server is running
-3. 在节点菜单中找到 "Siberia Nodes" 分类及其子分类 / Find "Siberia Nodes" category and its subcategories:
-   - **Siberia Nodes/Image** - 图片加载相关节点 / Image loading related nodes
-   - **Siberia Nodes/Ollama** - Ollama AI 相关节点 / Ollama AI related nodes
-4. 根据需要拖入相应的节点 / Drag in appropriate nodes as needed
-
-### Ollama 使用流程 / Ollama Usage Workflow
-1. 添加 "Siberia Ollama连接器 / Ollama Connector" 节点 / Add "Siberia Ollama连接器 / Ollama Connector" node
-2. 配置服务器地址 / Configure server URL
-3. 在模型下拉列表中选择可用模型 / Select available model from dropdown list
-   - 模型列表会自动从Ollama服务器加载 / Models automatically load from Ollama server
-   - 如需刷新列表，选择"refresh"选项 / To refresh list, select "refresh" option
-4. 添加 "Siberia Ollama生成器 / Ollama Generator" 或 "Siberia Ollama聊天 / Ollama Chat" 节点 / Add "Siberia Ollama生成器 / Ollama Generator" or "Siberia Ollama聊天 / Ollama Chat" node
-5. 将连接器输出连接到生成器/聊天节点的连接输入 / Connect connector output to generator/chat node's connection input
-6. 配置提示词和参数 / Configure prompts and parameters
-7. 执行节点 / Execute nodes
-
-## 节点说明 / Node Description
-
-### Siberia 图片加载器 / Image Loader
-- **输入 / Inputs**:
-  - `image`: 图片选择 / Image Selection（必需 / required）- 从 ComfyUI input 文件夹中选择 / Select from ComfyUI input folder
-- **输出 / Outputs**:
-  - `图片 / Image`: 加载的图片张量 / Loaded image tensor
-  - `信息 / Info`: 加载信息字符串 / Loading information string
-
-### Siberia Ollama 连接器 / Ollama Connector
-- **输入 / Inputs**:
-  - `server_url`: 服务器地址 / Server URL（必需 / required）- Ollama服务器地址 / Ollama server address
-  - `model`: 模型选择 / Model Selection（必需 / required）- 从下拉列表选择模型，选择"refresh"刷新列表 / Select model from dropdown, select "refresh" to reload list
-  - `timeout`: 超时时间 / Timeout（必需 / required）- 请求超时时间(秒) / Request timeout in seconds
-- **输出 / Outputs**:
-  - `连接 / Connection`: 连接信息对象 / Connection information object
-
-### Siberia Ollama 生成器 / Ollama Generator
-- **输入 / Inputs**:
-  - `prompt`: 用户提示词 / User Prompt（必需 / required）- 用户输入的提示词 / User input prompt
-  - `system_prompt`: 系统提示词 / System Prompt（必需 / required）- 系统角色设定 / System role setting
-  - `max_tokens`: 最大生成长度 / Max Tokens（必需 / required）- 生成的最大token数 / Maximum number of tokens to generate
-  - `temperature`: 温度参数 / Temperature（必需 / required）- 控制生成随机性 / Control generation randomness
-  - `connection`: Ollama连接 / Ollama Connection（可选 / optional）- 连接信息 / Connection information
-- **输出 / Outputs**:
-  - `生成结果 / Generated Text`: 生成的文本内容 / Generated text content
-  - `状态 / Status`: 执行状态信息 / Execution status information
-
-### Siberia Ollama 聊天 / Ollama Chat
-- **输入 / Inputs**:
-  - `message`: 用户消息 / User Message（必需 / required）- 用户输入的消息 / User input message
-  - `clear_history`: 清除历史 / Clear History（必需 / required）- 是否清除聊天历史 / Whether to clear chat history
-  - `connection`: Ollama连接 / Ollama Connection（可选 / optional）- 连接信息 / Connection information
-  - `system_prompt`: 系统提示词 / System Prompt（可选 / optional）- 系统角色设定 / System role setting
-- **输出 / Outputs**:
-  - `回复 / Response`: AI回复内容 / AI response content
-  - `历史 / History`: 聊天历史记录 / Chat history record
-
-## 技术细节 / Technical Details
-
-- 基于 PyTorch 和 PIL/Pillow / Based on PyTorch and PIL/Pillow
-- 使用 requests 库进行 HTTP 通信 / Use requests library for HTTP communication
-- 支持 GPU 加速 / Support GPU acceleration
-- 自动错误处理和回退机制 / Automatic error handling and fallback mechanism
-- 兼容 ComfyUI 图片格式规范 / Compatible with ComfyUI image format specifications
-- 兼容 Ollama REST API / Compatible with Ollama REST API
-
-## Ollama 服务器要求 / Ollama Server Requirements
-
-- 需要运行 Ollama 服务器 / Need Ollama server running
-- 默认地址: http://127.0.0.1:11434 / Default URL: http://127.0.0.1:11434
-- 支持本地和远程服务器 / Support local and remote servers
-- 需要安装相应的模型 / Need to install appropriate models
-
-### 安装 Ollama / Install Ollama
+### 1. 克隆节点包 / Clone Node Package
 ```bash
-# Linux / macOS
+cd ComfyUI/custom_nodes
+git clone https://github.com/your-repo/ComfyUI-SiberiaNodes.git
+```
+
+### 2. 安装依赖 / Install Dependencies
+```bash
+cd ComfyUI-SiberiaNodes
+pip install -r requirements.txt
+```
+
+### 3. 启动 ComfyUI / Launch ComfyUI
+```bash
+# 返回 ComfyUI 主目录
+cd ../../
+python main.py
+```
+
+## 配置 / Configuration
+
+### Ollama 服务器配置 / Ollama Server Configuration
+
+配置文件位于 `config.yaml`，支持多服务器配置：
+
+Configuration file is located at `config.yaml`, supporting multiple server configurations:
+
+```yaml
+last_used_server: http://127.0.0.1:11434
+ollama_servers:
+- name: Local Server / 本地服务器
+  url: http://127.0.0.1:11434
+- name: Remote Server / 远程服务器
+  url: http://your-remote-server:31434
+```
+
+### Ollama 安装 / Ollama Installation
+
+#### 本地安装 / Local Installation
+```bash
+# 安装 Ollama
 curl -fsSL https://ollama.ai/install.sh | sh
 
-# 或访问 https://ollama.ai/download 获取其他平台的安装方法
-# Or visit https://ollama.ai/download for other platforms
-```
+# 启动 Ollama 服务
+ollama serve
 
-### 拉取模型 / Pull Models
-```bash
+# 下载模型
 ollama pull llama2
-ollama pull mistral
-ollama pull codellama
+ollama pull llava  # 用于视觉分析
 ```
 
-## 兼容性 / Compatibility
+## 节点详解 / Node Details
 
-- ComfyUI 最新版本 / Latest ComfyUI version
-- Python 3.8+ / Python 3.8+
-- CUDA 兼容 (如可用) / CUDA compatible (if available)
+### 1. Siberia 图片加载器 / Siberia Image Loader
 
-## 开发说明 / Development Notes
+**功能**: 从 ComfyUI input 文件夹加载图像
+**Function**: Load images from ComfyUI input folder
 
-### 文件结构 / File Structure
+**输入 / Inputs**:
+- `image`: 选择要加载的图像文件
+
+**输出 / Outputs**:
+- `图片 / Image`: 加载的图像张量
+- `信息 / Info`: 加载状态信息
+
+**使用示例 / Usage Example**:
 ```
-ComfyUI-SiberiaNodes/
-├── __init__.py         # 插件入口 / Plugin entry
-├── nodes.py           # 节点实现 / Node implementation
-├── ollama_client.py   # Ollama客户端抽象类 / Ollama Client Abstraction
-├── requirements.txt   # 依赖列表 / Dependency list
-├── web/               # 前端扩展 / Frontend extensions
-│   └── js/
-│       └── siberiaOllama.js  # 动态模型选择功能 / Dynamic model selection
-└── README.md         # 说明文档 / Documentation
+图像文件 → Siberia Image Loader → 图像张量
 ```
 
-### 代码架构 / Code Architecture
+### 2. Siberia Ollama 连接器 / Siberia Ollama Connector
 
-- **SiberiaOllamaClient** (`ollama_client.py`):
-  - 抽象的Ollama客户端类 / Abstract Ollama client class
-  - 封装所有Ollama API交互 / Encapsulates all Ollama API interactions
-  - 提供连接管理、文本生成、聊天功能 / Provides connection management, text generation, chat functionality
+**功能**: 连接到 Ollama 服务器并获取可用模型
+**Function**: Connect to Ollama server and fetch available models
 
-- **节点类** (`nodes.py`):
-  - 调用SiberiaOllamaClient进行具体操作 / Call SiberiaOllamaClient for specific operations
-  - 专注于ComfyUI节点接口 / Focus on ComfyUI node interface
-  - 处理UI输入输出 / Handle UI inputs and outputs
+**输入 / Inputs**:
+- `server`: 选择 Ollama 服务器
+- `model_name`: 指定要使用的模型名称
+
+**输出 / Outputs**:
+- `connector`: 连接器对象，供其他 Ollama 节点使用
+
+**使用示例 / Usage Example**:
+```
+Ollama Connector → 其他 Ollama 节点
+```
+
+### 3. Siberia Ollama 聊天 / Siberia Ollama Chat
+
+**功能**: 与 Ollama 模型进行文本对话
+**Function**: Have text conversations with Ollama models
+
+**输入 / Inputs**:
+- `connector`: Ollama 连接器
+- `prompt`: 对话提示词
+- `system_prompt`: 系统提示词（可选）
+- `temperature`: 温度参数（0-2）
+- `max_tokens`: 最大输出令牌数
+
+**输出 / Outputs**:
+- `text`: 模型回复文本
+- `response`: 完整响应对象
+
+**使用示例 / Usage Example**:
+```
+Connector + Prompt → Ollama Chat → 回复文本
+```
+
+### 4. Siberia Ollama 视觉分析 / Siberia Ollama Vision
+
+**功能**: 使用多模态模型分析图像内容
+**Function**: Analyze image content using multimodal models
+
+**输入 / Inputs**:
+- `connector`: Ollama 连接器
+- `images`: 输入图像张量
+- `prompt`: 分析提示词
+- `system_prompt`: 系统提示词（可选）
+- `temperature`: 温度参数
+
+**输出 / Outputs**:
+- `text`: 分析结果文本
+- `response`: 完整响应对象
+
+**使用示例 / Usage Example**:
+```
+Connector + Image + Prompt → Ollama Vision → 分析文本
+```
+
+### 5. Siberia 通用显示 / Siberia Universal Display
+
+**功能**: 显示任意类型的数据
+**Function**: Display any type of data
+
+**输入 / Inputs**:
+- `data`: 要显示的数据（任意类型）
+
+**输出 / Outputs**:
+- `data`: 原样输出的数据
+
+**使用示例 / Usage Example**:
+```
+任意数据 → Universal Display → 格式化显示
+```
+
+## 工作流示例 / Workflow Examples
+
+### 示例 1: 基础图像分析 / Basic Image Analysis
+
+```
+Image Loader → Ollama Vision → Universal Display
+     ↑
+Connector ←
+```
+
+1. 使用 Image Loader 加载图像
+2. 连接到 Ollama 服务器
+3. 对图像进行视觉分析
+4. 显示分析结果
+
+### 示例 2: 文本对话工作流 / Text Chat Workflow
+
+```
+Connector → Ollama Chat → Universal Display
+```
+
+1. 配置 Ollama 连接
+2. 输入对话提示
+3. 获取模型回复
+4. 显示结果
+
+### 示例 3: 图像描述生成 / Image Description Generation
+
+```
+Image Loader → Ollama Vision → Ollama Chat → Universal Display
+     ↑                            ↑
+Connector ←───────────────────────┘
+```
+
+1. 加载图像并生成初步描述
+2. 基于描述进行进一步对话
+3. 生成最终文本输出
+
+## 使用技巧 / Usage Tips
+
+### 最佳实践 / Best Practices
+
+1. **模型选择**: 确保下载了适合的 Ollama 模型
+   - 文本对话: `llama2`, `codellama`, `qwen`
+   - 视觉分析: `llava`, `bakllava`
+
+2. **服务器配置**: 优先使用本地服务器以获得更好性能
+
+3. **提示词优化**:
+   - 使用清晰的系统提示词定义角色
+   - 提供具体的输出格式要求
+   - 合理设置温度参数控制创造性
+
+4. **性能优化**:
+   - 批量处理多个图像时复用连接器
+   - 适当调整 `max_tokens` 参数
+   - 使用较小的模型进行快速测试
+
+### 常见问题 / Common Issues
+
+**Q: 连接器无法连接到 Ollama 服务器**
+- 检查 Ollama 服务是否运行: `ollama list`
+- 验证服务器 URL 配置是否正确
+- 确认网络连接和防火墙设置
+
+**Q: 视觉分析节点不工作**
+- 确保使用支持视觉的模型（如 `llava`）
+- 检查图像格式是否正确
+- 验证图像张量维度
+
+**Q: 模型回复质量不佳**
+- 优化提示词，提供更多上下文
+- 调整温度参数
+- 尝试不同的模型
+
+**Q: 节点显示为红色错误状态**
+- 检查控制台错误信息
+- 确认所有依赖已正确安装
+- 验证输入数据类型和格式
+
+## 依赖要求 / Dependencies
+
+- **ComfyUI**: 基础环境
+- **PyTorch**: >= 1.13.0
+- **NumPy**: >= 1.21.0
+- **Pillow**: >= 8.0.0
+- **Requests**: >= 2.25.0
+- **Ollama**: >= 0.1.0
+- **Typing Extensions**: >= 4.0.0
+
+## 更新日志 / Changelog
+
+### v1.0.0
+- 初始版本发布
+- 支持基础的 Ollama 连接和聊天功能
+- 添加图像加载和视觉分析
+- 实现通用数据显示节点
+
+## 贡献 / Contributing
+
+欢迎提交 Issue 和 Pull Request 来帮助改进这个项目！
+
+Welcome to submit Issues and Pull Requests to help improve this project!
 
 ## 许可证 / License
 
-MIT License
+本项目采用 MIT 许可证。详见 LICENSE 文件。
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## 支持 / Support
+
+如果您遇到问题或有功能建议，请：
+
+- 提交 GitHub Issue
+- 查看文档和示例
+- 加入社区讨论
+
+---
+
+**注意事项 / Important Notes**:
+
+- 请确保 Ollama 服务正常运行
+- 建议使用 GPU 加速以获得更好性能
+- 定期更新到最新版本以获得新功能和修复

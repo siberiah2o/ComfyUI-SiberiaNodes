@@ -1,3 +1,12 @@
+"""
+ComfyUI-SiberiaNodes - Web assets and JavaScript extensions
+
+Author: siberiah0h
+Email: siberiah0h@gmail.com
+Technical Blog: www.dataeast.cn
+Last Updated: 2025-11-15
+"""
+
 import os
 import sys
 from pathlib import Path
