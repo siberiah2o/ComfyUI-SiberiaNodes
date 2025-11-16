@@ -75,7 +75,10 @@ ollama serve
 
 # 下载模型
 ollama pull llama2
+ollama pull qwen2.5  # 文本对话
 ollama pull llava  # 用于视觉分析
+ollama pull qwen3-vl:4b  # 视觉分析（4B参数版本）
+ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 ```
 
 ## 节点详解 / Node Details
@@ -120,11 +123,12 @@ Ollama Connector → 其他 Ollama 节点
 **Function**: Have text conversations with Ollama models
 
 **输入 / Inputs**:
-- `connector`: Ollama 连接器
-- `prompt`: 对话提示词
-- `system_prompt`: 系统提示词（可选）
-- `temperature`: 温度参数（0-2）
+- `message`: 用户消息
+- `connection`: Ollama 连接器（可选）
+- `clear_history`: 是否清除历史记录
+- `temperature`: 温度参数（0-1）
 - `max_tokens`: 最大输出令牌数
+- `language`: 语言选择（中文/English）
 
 **输出 / Outputs**:
 - `text`: 模型回复文本
@@ -141,11 +145,13 @@ Connector + Prompt → Ollama Chat → 回复文本
 **Function**: Analyze image content using multimodal models
 
 **输入 / Inputs**:
-- `connector`: Ollama 连接器
-- `images`: 输入图像张量
+- `connection`: Ollama 连接器
+- `image`: 输入图像张量
 - `prompt`: 分析提示词
-- `system_prompt`: 系统提示词（可选）
-- `temperature`: 温度参数
+- `clear_history`: 是否清除历史记录
+- `temperature`: 温度参数（0.1-1.0）
+- `max_tokens`: 最大输出令牌数
+- `language`: 语言选择（中文/English）
 
 **输出 / Outputs**:
 - `text`: 分析结果文本
@@ -215,8 +221,8 @@ Connector ←──────────────────────�
 ### 最佳实践 / Best Practices
 
 1. **模型选择**: 确保下载了适合的 Ollama 模型
-   - 文本对话: `llama2`, `codellama`, `qwen`
-   - 视觉分析: `llava`, `bakllava`
+   - 文本对话: `llama2`, `codellama`, `qwen`, `qwen2.5`
+   - 视觉分析: `llava`, `bakllava`, `qwen3-vl:4b`, `qwen3-vl:8b`
 
 2. **服务器配置**: 优先使用本地服务器以获得更好性能
 

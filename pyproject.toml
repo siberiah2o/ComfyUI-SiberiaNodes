@@ -1,7 +1,7 @@
 [project]
 name = "siberianodes"
 description = "Custom nodes for ComfyUI with Ollama integration for LLM chat, vision analysis, and utilities"
-version = "1.0.0"
+version = "1.0.1"
 license = {file = "LICENSE"}
 
 authors = [
