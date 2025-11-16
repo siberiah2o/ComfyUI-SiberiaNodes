@@ -49,7 +49,7 @@ Documentation = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/wiki"
 "Bug Tracker" = "https://github.com/siberiah2o/ComfyUI-SiberiaNodes/issues"
 
 [tool.comfy]
-PublisherId = "siberiah2o"
+PublisherId = "siberia"
 DisplayName = "ComfyUI-SiberiaNodes"
 Icon = ""
 includes = []
