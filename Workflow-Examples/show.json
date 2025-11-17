@@ -1,0 +1,306 @@
+{
+  "id": "aaefdf0a-6eb6-4b98-95a3-844706433aa8",
+  "revision": 0,
+  "last_node_id": 29,
+  "last_link_id": 30,
+  "nodes": [
+    {
+      "id": 28,
+      "type": "SiberiaUniversalDisplayNode",
+      "pos": [
+        822.5572218738158,
+        215.27322233329804
+      ],
+      "size": [
+        408.3822265625,
+        161.91000000000005
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "siberianodes",
+        "ver": "unknown",
+        "Node name for S&R": "SiberiaUniversalDisplayNode"
+      },
+      "widgets_values": [
+        "你好！有什么可以帮助你的吗？"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "SiberiaOllamaVisionNode",
+      "pos": [
+        371.81016528925636,
+        637.7801652892564
+      ],
+      "size": [
+        400,
+        204
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTION",
+          "link": 20
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "回复 / Response",
+          "type": "STRING",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "siberianodes",
+        "ver": "unknown",
+        "Node name for S&R": "SiberiaOllamaVisionNode"
+      },
+      "widgets_values": [
+        "请详细描述这张图片的内容 / Please describe the content of this image in detail",
+        false,
+        0.7,
+        4096,
+        "中文"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "SiberiaOllamaConnector",
+      "pos": [
+        372.69000000000005,
+        190.73999999999995
+      ],
+      "size": [
+        358.2095703125,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "连接 / Connection",
+          "type": "OLLAMA_CONNECTION",
+          "links": [
+            15,
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "siberianodes",
+        "ver": "unknown",
+        "Node name for S&R": "SiberiaOllamaConnector"
+      },
+      "widgets_values": [
+        "Remote Server / 远程服务器",
+        "qwen3-vl:4b-instruct-bf16",
+        30
+      ]
+    },
+    {
+      "id": 17,
+      "type": "SiberiaOllamaChatNode",
+      "pos": [
+        372.31029301277255,
+        357.9834710743805
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connection",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTION",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "回复 / Response",
+          "type": "STRING",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "siberianodes",
+        "ver": "unknown",
+        "Node name for S&R": "SiberiaOllamaChatNode"
+      },
+      "widgets_values": [
+        "Hello!",
+        false,
+        0.7,
+        4096,
+        "中文"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "SiberiaUniversalDisplayNode",
+      "pos": [
+        831.6417673283626,
+        451.893222333297
+      ],
+      "size": [
+        401.55040838068214,
+        247.2309090909091
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "siberianodes",
+        "ver": "unknown",
+        "Node name for S&R": "SiberiaUniversalDisplayNode"
+      },
+      "widgets_values": [
+        "这是一张卡通风格的图片，画面中央是一个圆滚滚的黄色卡通小动物，看起来像是一只小熊或小猪。它有着大大的黑色眼睛，脸上带着非常灿烂、夸张的笑容，露出整齐洁白的牙齿。它的身体是橙黄色的，四肢短小，呈站立姿势。背景是模糊的户外场景，可以看到绿色的棕榈树叶和蓝天，暗示这是一个热带或度假环境。整体画面色彩明亮，充满童趣和欢乐的氛围。"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [
+        26,
+        229
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "1x1.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      15,
+      16,
+      0,
+      17,
+      0,
+      "OLLAMA_CONNECTION"
+    ],
+    [
+      20,
+      16,
+      0,
+      21,
+      0,
+      "OLLAMA_CONNECTION"
+    ],
+    [
+      21,
+      12,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      29,
+      17,
+      0,
+      28,
+      0,
+      "*"
+    ],
+    [
+      30,
+      21,
+      0,
+      29,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1000000000000005,
+      "offset": [
+        20.585351720882723,
+        -126.09384046047514
+      ]
+    },
+    "frontendVersion": "1.28.8"
+  },
+  "version": 0.4
+}

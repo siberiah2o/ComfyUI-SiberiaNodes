@@ -28,18 +28,21 @@ ComfyUI-SiberiaNodes is a custom node package for ComfyUI that provides integrat
 ## 安装 / Installation
 
 ### 1. 克隆节点包 / Clone Node Package
+
 ```bash
 cd ComfyUI/custom_nodes
 git clone https://github.com/siberiah2o/ComfyUI-SiberiaNodes.git
 ```
 
 ### 2. 安装依赖 / Install Dependencies
+
 ```bash
 cd ComfyUI-SiberiaNodes
 pip install -r requirements.txt
 ```
 
 ### 3. 启动 ComfyUI / Launch ComfyUI
+
 ```bash
 # 返回 ComfyUI 主目录
 cd ../../
@@ -57,15 +60,16 @@ Configuration file is located at `config.yaml`, supporting multiple server confi
 ```yaml
 last_used_server: http://127.0.0.1:11434
 ollama_servers:
-- name: Local Server / 本地服务器
-  url: http://127.0.0.1:11434
-- name: Remote Server / 远程服务器
-  url: http://your-remote-server:31434
+  - name: Local Server / 本地服务器
+    url: http://127.0.0.1:11434
+  - name: Remote Server / 远程服务器
+    url: http://your-remote-server:31434
 ```
 
 ### Ollama 安装 / Ollama Installation
 
 #### 本地安装 / Local Installation
+
 ```bash
 # 安装 Ollama
 curl -fsSL https://ollama.ai/install.sh | sh
@@ -74,9 +78,6 @@ curl -fsSL https://ollama.ai/install.sh | sh
 ollama serve
 
 # 下载模型
-ollama pull llama2
-ollama pull qwen2.5  # 文本对话
-ollama pull llava  # 用于视觉分析
 ollama pull qwen3-vl:4b  # 视觉分析（4B参数版本）
 ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 ```
@@ -89,13 +90,16 @@ ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 **Function**: Load images from ComfyUI input folder
 
 **输入 / Inputs**:
+
 - `image`: 选择要加载的图像文件
 
 **输出 / Outputs**:
+
 - `图片 / Image`: 加载的图像张量
 - `信息 / Info`: 加载状态信息
 
 **使用示例 / Usage Example**:
+
 ```
 图像文件 → Siberia Image Loader → 图像张量
 ```
@@ -106,13 +110,16 @@ ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 **Function**: Connect to Ollama server and fetch available models
 
 **输入 / Inputs**:
+
 - `server`: 选择 Ollama 服务器
 - `model_name`: 指定要使用的模型名称
 
 **输出 / Outputs**:
+
 - `connector`: 连接器对象，供其他 Ollama 节点使用
 
 **使用示例 / Usage Example**:
+
 ```
 Ollama Connector → 其他 Ollama 节点
 ```
@@ -123,6 +130,7 @@ Ollama Connector → 其他 Ollama 节点
 **Function**: Have text conversations with Ollama models
 
 **输入 / Inputs**:
+
 - `message`: 用户消息
 - `connection`: Ollama 连接器（可选）
 - `clear_history`: 是否清除历史记录
@@ -131,10 +139,12 @@ Ollama Connector → 其他 Ollama 节点
 - `language`: 语言选择（中文/English）
 
 **输出 / Outputs**:
+
 - `text`: 模型回复文本
 - `response`: 完整响应对象
 
 **使用示例 / Usage Example**:
+
 ```
 Connector + Prompt → Ollama Chat → 回复文本
 ```
@@ -145,6 +155,7 @@ Connector + Prompt → Ollama Chat → 回复文本
 **Function**: Analyze image content using multimodal models
 
 **输入 / Inputs**:
+
 - `connection`: Ollama 连接器
 - `image`: 输入图像张量
 - `prompt`: 分析提示词
@@ -154,10 +165,12 @@ Connector + Prompt → Ollama Chat → 回复文本
 - `language`: 语言选择（中文/English）
 
 **输出 / Outputs**:
+
 - `text`: 分析结果文本
 - `response`: 完整响应对象
 
 **使用示例 / Usage Example**:
+
 ```
 Connector + Image + Prompt → Ollama Vision → 分析文本
 ```
@@ -168,12 +181,15 @@ Connector + Image + Prompt → Ollama Vision → 分析文本
 **Function**: Display any type of data
 
 **输入 / Inputs**:
+
 - `data`: 要显示的数据（任意类型）
 
 **输出 / Outputs**:
+
 - `data`: 原样输出的数据
 
 **使用示例 / Usage Example**:
+
 ```
 任意数据 → Universal Display → 格式化显示
 ```
@@ -216,48 +232,6 @@ Connector ←──────────────────────�
 2. 基于描述进行进一步对话
 3. 生成最终文本输出
 
-## 使用技巧 / Usage Tips
-
-### 最佳实践 / Best Practices
-
-1. **模型选择**: 确保下载了适合的 Ollama 模型
-   - 文本对话: `llama2`, `codellama`, `qwen`, `qwen2.5`
-   - 视觉分析: `llava`, `bakllava`, `qwen3-vl:4b`, `qwen3-vl:8b`
-
-2. **服务器配置**: 优先使用本地服务器以获得更好性能
-
-3. **提示词优化**:
-   - 使用清晰的系统提示词定义角色
-   - 提供具体的输出格式要求
-   - 合理设置温度参数控制创造性
-
-4. **性能优化**:
-   - 批量处理多个图像时复用连接器
-   - 适当调整 `max_tokens` 参数
-   - 使用较小的模型进行快速测试
-
-### 常见问题 / Common Issues
-
-**Q: 连接器无法连接到 Ollama 服务器**
-- 检查 Ollama 服务是否运行: `ollama list`
-- 验证服务器 URL 配置是否正确
-- 确认网络连接和防火墙设置
-
-**Q: 视觉分析节点不工作**
-- 确保使用支持视觉的模型（如 `llava`）
-- 检查图像格式是否正确
-- 验证图像张量维度
-
-**Q: 模型回复质量不佳**
-- 优化提示词，提供更多上下文
-- 调整温度参数
-- 尝试不同的模型
-
-**Q: 节点显示为红色错误状态**
-- 检查控制台错误信息
-- 确认所有依赖已正确安装
-- 验证输入数据类型和格式
-
 ## 依赖要求 / Dependencies
 
 - **ComfyUI**: 基础环境
@@ -271,6 +245,7 @@ Connector ←──────────────────────�
 ## 更新日志 / Changelog
 
 ### v1.0.0
+
 - 初始版本发布
 - 支持基础的 Ollama 连接和聊天功能
 - 添加图像加载和视觉分析
