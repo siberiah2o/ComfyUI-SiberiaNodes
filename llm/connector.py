@@ -15,7 +15,7 @@ import pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
 from .ollama_sdk_client import SiberiaOllamaSDKClient
-from config_manager import manager
+from ..config_manager import manager
 
 
 class SiberiaOllamaConnector:

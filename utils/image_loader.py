@@ -43,8 +43,9 @@ class SiberiaMultiImageLoaderNode:
     CATEGORY = "Siberia Nodes/Image"
 
     @classmethod
-    def IS_CHANGED(cls, input_count):
+    def IS_CHANGED(cls, input_count, **kwargs):
         # Force re-evaluation when parameters change
+        # Ignore additional keyword arguments from dynamic inputs
         return hash(input_count)
 
 
