@@ -8,7 +8,7 @@
 **Author:** siberiah0h
 **Email:** siberiah0h@gmail.com
 **Technical Blog:** www.dataeast.cn
-**Version:** 1.0.0
+**Version:** 1.1.0
 **License:** MIT
 
 ## 概述 / Overview
@@ -23,6 +23,7 @@ ComfyUI-SiberiaNodes is a custom node package for ComfyUI that provides integrat
 - 💬 **聊天功能**: 基于文本的对话交互
 - 👁️ **视觉分析**: 图像理解和分析能力
 - 🖼️ **图像加载**: 简单易用的图像加载节点
+- 🔄 **多图处理**: 支持1-8张图片的同时输入和处理
 - 📊 **通用显示**: 支持任意数据的可视化展示
 
 ## 安装 / Installation
@@ -104,7 +105,33 @@ ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 图像文件 → Siberia Image Loader → 图像张量
 ```
 
-### 2. Siberia Ollama 连接器 / Siberia Ollama Connector
+### 2. Siberia 多图片输入器 / Siberia Multi Image Input
+
+**功能**: 同时处理多张图像，支持1-8张图片的批量输入
+**Function**: Process multiple images simultaneously, supporting batch input of 1-8 images
+
+**输入 / Inputs**:
+
+- `input_count`: 输入图片数量 (1-8)
+- `image_1` 到 `image_8`: 各个图像输入端口（动态显示）
+
+**输出 / Outputs**:
+
+- `图片张量列表 / Images Tensor List`: 堆叠后的图像张量
+
+**使用示例 / Usage Example**:
+
+```
+多张图片 → Siberia Multi Image Input → 图像张量列表 → Ollama Vision
+```
+
+**特性 / Features**:
+
+- 动态输入端口：根据设定的数量显示对应数量的图像输入
+- 批量处理：将多张图片堆叠成单个张量进行处理
+- 灵活配置：支持1-8张图片的任意数量组合
+
+### 3. Siberia Ollama 连接器 / Siberia Ollama Connector
 
 **功能**: 连接到 Ollama 服务器并获取可用模型
 **Function**: Connect to Ollama server and fetch available models
@@ -124,7 +151,7 @@ ollama pull qwen3-vl:8b  # 视觉分析（8B参数版本）
 Ollama Connector → 其他 Ollama 节点
 ```
 
-### 3. Siberia Ollama 聊天 / Siberia Ollama Chat
+### 4. Siberia Ollama 聊天 / Siberia Ollama Chat
 
 **功能**: 与 Ollama 模型进行文本对话
 **Function**: Have text conversations with Ollama models
@@ -149,7 +176,7 @@ Ollama Connector → 其他 Ollama 节点
 Connector + Prompt → Ollama Chat → 回复文本
 ```
 
-### 4. Siberia Ollama 视觉分析 / Siberia Ollama Vision
+### 5. Siberia Ollama 视觉分析 / Siberia Ollama Vision
 
 **功能**: 使用多模态模型分析图像内容
 **Function**: Analyze image content using multimodal models
@@ -175,7 +202,7 @@ Connector + Prompt → Ollama Chat → 回复文本
 Connector + Image + Prompt → Ollama Vision → 分析文本
 ```
 
-### 5. Siberia 通用显示 / Siberia Universal Display
+### 6. Siberia 通用显示 / Siberia Universal Display
 
 **功能**: 显示任意类型的数据
 **Function**: Display any type of data
@@ -220,7 +247,20 @@ Connector → Ollama Chat → Universal Display
 3. 获取模型回复
 4. 显示结果
 
-### 示例 3: 图像描述生成 / Image Description Generation
+### 示例 3: 多图像批量分析 / Multi-Image Batch Analysis
+
+```
+Image Loader (x3) → Multi Image Input → Ollama Vision → Universal Display
+                           ↑
+                    Connector ←
+```
+
+1. 使用多个 Image Loader 加载不同的图像
+2. 通过 Multi Image Input 将图片堆叠成批次
+3. 对图片批次进行统一的视觉分析
+4. 显示批量分析结果
+
+### 示例 4: 图像描述生成 / Image Description Generation
 
 ```
 Image Loader → Ollama Vision → Ollama Chat → Universal Display
@@ -243,6 +283,13 @@ Connector ←──────────────────────�
 - **Typing Extensions**: >= 4.0.0
 
 ## 更新日志 / Changelog
+
+### v1.1.0
+
+- 新增多图片处理功能
+- 添加 Siberia Multi Image Input 节点
+- 支持1-8张图片的同时输入和批量处理
+- 优化图像输入的动态配置
 
 ### v1.0.0
 
