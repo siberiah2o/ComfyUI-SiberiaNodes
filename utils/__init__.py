@@ -12,9 +12,19 @@ from .display_node import (
     UTIL_NODE_CLASS_MAPPINGS,
     UTIL_NODE_DISPLAY_NAME_MAPPINGS
 )
+from .image_loader import (
+    SiberiaMultiImageLoaderNode,
+    SiberiaImageLoaderNode,
+    IMAGE_LOADER_NODE_CLASS_MAPPINGS,
+    IMAGE_LOADER_NODE_DISPLAY_NAME_MAPPINGS
+)
 
 __all__ = [
     'SiberiaUniversalDisplayNode',
+    'SiberiaMultiImageLoaderNode',
+    'SiberiaImageLoaderNode',
     'UTIL_NODE_CLASS_MAPPINGS',
-    'UTIL_NODE_DISPLAY_NAME_MAPPINGS'
+    'UTIL_NODE_DISPLAY_NAME_MAPPINGS',
+    'IMAGE_LOADER_NODE_CLASS_MAPPINGS',
+    'IMAGE_LOADER_NODE_DISPLAY_NAME_MAPPINGS'
 ]
